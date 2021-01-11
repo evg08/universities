@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -37,5 +38,19 @@ public class UniversityEntity {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UniversityEntity that = (UniversityEntity) o;
+        return id.equals(that.id) &&
+                name.equals(that.name) &&
+                shortName.equals(that.shortName) &&
+                Objects.equals(foundationYear, that.foundationYear);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, shortName, foundationYear);
+    }
 }

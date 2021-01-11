@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -31,4 +32,20 @@ public class FacultyEntity {
     @OneToMany(fetch = FetchType.EAGER,mappedBy ="faculty" )
     private List<DepartmentEntity> departments;
     //joinColumns -это facultyId
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FacultyEntity that = (FacultyEntity) o;
+        return facultyId.equals(that.facultyId) &&
+                name.equals(that.name) &&
+                university.equals(that.university);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(facultyId, name, university);
+    }
 }
+

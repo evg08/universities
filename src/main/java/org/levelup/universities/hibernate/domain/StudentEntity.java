@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 
 @Getter
@@ -40,5 +41,21 @@ public class StudentEntity {
         this.firstName = firstName;
         this.birthday = birthday;
         this.studentGroup = studentGroup;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentEntity that = (StudentEntity) o;
+        return studentCard.equals(that.studentCard) &&
+                lastName.equals(that.lastName) &&
+                firstName.equals(that.firstName) &&
+                birthday.equals(that.birthday);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentCard, lastName, firstName, birthday);
     }
 }

@@ -22,14 +22,14 @@ public class HomeTask8 {
         HibernateDepartmentRepository departmentRepository = new HibernateDepartmentRepository(factory);
         HibernateStudentGroupRepositoryRepository studentGroupRepository=new HibernateStudentGroupRepositoryRepository(factory);
         StudentRepository studentRepository= new HibernateStudentRepository(factory);
-/*
+
         //---task 1
-        FacultyEntity faculty3= facultyRepository.createFaculty(103,533,"Инженерный533");
-        FacultyEntity faculty4= facultyRepository.createFaculty(104,534,"Инженерный534");
+        FacultyEntity faculty3= facultyRepository.createFaculty(103,633,"Инженерный533");
+        FacultyEntity faculty4= facultyRepository.createFaculty(104,634,"Инженерный534");
         List<Integer> facultyListIds= new ArrayList<>();
         facultyListIds.add(faculty3.getFacultyId());
         facultyListIds.add(faculty4.getFacultyId());
-
+/*
         List<Integer> subjListIds= new ArrayList<>();
         subjListIds.add(subjectRepository.createSubject(7, "Экономика7", 72).getId());
         subjListIds.add(subjectRepository.createSubject(8, "Физика8", 72).getId());
@@ -56,12 +56,12 @@ public class HomeTask8 {
 
       //  HibernateStudentGroupRepositoryRepository studentGroupRepository=new HibernateStudentGroupRepositoryRepository(factory);
       //  StudentRepository studentRepository= new HibernateStudentRepository(factory);
-        StudentGroupEntity studentGroup= studentGroupRepository.createStudentGroup("test2",departmentEntity);
+        StudentGroupEntity studentGroup= studentGroupRepository.createStudentGroup("test25",departmentEntity);
     //    System.out.println(studentGroup.getGroupKey());
         System.out.println("------------------>");
 
        System.out.println("------------------>");
-        StudentGroupEntity findStudentGroup=studentGroupRepository.findByGroupKey("test2");//
+        StudentGroupEntity findStudentGroup=studentGroupRepository.findByGroupKey("test25");//
 
         System.out.println(findStudentGroup.getGroupKey());
         System.out.println("------------------>");

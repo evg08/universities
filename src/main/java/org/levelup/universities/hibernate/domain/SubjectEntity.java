@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 @Setter
 @Getter
@@ -20,7 +21,7 @@ public class SubjectEntity {
     private String subject;
     @Column(name="count_of_hours")
     private Integer hours;
-    @ManyToMany(mappedBy = "subjects")
+    @ManyToMany(mappedBy = "subjects",fetch = FetchType.EAGER)
     private Collection <FacultyEntity>faculties;
 
     @OneToOne(mappedBy = "subject",cascade ={CascadeType.PERSIST, CascadeType.REMOVE}) //field in subjectInfoentity  biderection
@@ -32,5 +33,20 @@ public class SubjectEntity {
         this.subject=subject;
         this.hours=hours;
         this.faculties=new ArrayList<>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubjectEntity that = (SubjectEntity) o;
+        return id.equals(that.id) &&
+                subject.equals(that.subject) &&
+                hours.equals(that.hours);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, subject, hours);
     }
 }

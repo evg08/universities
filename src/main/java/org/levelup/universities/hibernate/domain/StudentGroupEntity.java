@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -29,5 +30,18 @@ public class StudentGroupEntity {
     public StudentGroupEntity(String groupKey, DepartmentEntity department) {
         this.groupKey = groupKey;
         this.department = department;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentGroupEntity that = (StudentGroupEntity) o;
+        return groupKey.equals(that.groupKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groupKey);
     }
 }
