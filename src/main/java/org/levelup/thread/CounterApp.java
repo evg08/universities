@@ -24,6 +24,7 @@ public class CounterApp {
 
 
     static class Counter{
+       // private final Object mutex=new Object();
         private int value;
        // public  synchronized void increment(){
             public   void increment(){

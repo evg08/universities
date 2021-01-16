@@ -77,7 +77,7 @@ public class DepartmentTest {
         Assertions.assertEquals(department.getName(), createdDepartment.getName());
         Assertions.assertEquals(department.getFaculty().getFacultyId(),createdDepartment.getFaculty().getFacultyId());
         Assertions.assertEquals(department.getFaculty().getName(),createdDepartment.getFaculty().getName());
-    }
+           }
 
     @Test
     public void testFindAll_whenDataAreExist_thenReturnListDepartmentEntities() {
@@ -91,6 +91,7 @@ public class DepartmentTest {
         List<DepartmentEntity> actualDepartmentList= (List<DepartmentEntity>) departmentRepository.findAll();
         Assertions.assertEquals(actualDepartmentList.size(), 2);
         Assertions.assertTrue(actualDepartmentList.containsAll(departmentList));
+
     }
 
     @Test
